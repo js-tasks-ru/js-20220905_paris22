@@ -1,4 +1,4 @@
-import ColumnChart from '../solution/index.js';
+import ColumnChart from './index';
 
 describe('oop-basic-intro-to-dom/column-chart', () => {
   let columnChart;
@@ -27,7 +27,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
   it('should have ability to define "label"', () => {
     const label = 'New label';
 
-    columnChart = new ColumnChart({ label });
+    columnChart = new ColumnChart({label});
 
     const title = columnChart.element.querySelector('.column-chart__title');
 
@@ -37,7 +37,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
   it('should have ability to define "link"', () => {
     const link = 'https://google.com';
 
-    columnChart = new ColumnChart({ link });
+    columnChart = new ColumnChart({link});
 
     document.body.append(columnChart.element);
 
@@ -54,7 +54,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
 
   it('should have ability to define total value', () => {
     const value = 200;
-    columnChart = new ColumnChart({ value });
+    columnChart = new ColumnChart({value});
     const columnLink = columnChart.element.querySelector('.column-chart__header');
 
     expect(columnLink).toHaveTextContent(value);
@@ -64,7 +64,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
     const formatHeading = data => `USD ${data}`;
     const value = 100;
 
-    columnChart = new ColumnChart({ formatHeading, value });
+    columnChart = new ColumnChart({formatHeading, value});
     const columnLink = columnChart.element.querySelector('.column-chart__header');
 
     expect(columnLink).toHaveTextContent(formatHeading(value));
@@ -73,7 +73,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
   it('should render data correctly', () => {
     const data = [10, 20, 30];
 
-    columnChart = new ColumnChart({ data });
+    columnChart = new ColumnChart({data});
 
     const chart = columnChart.element.querySelector('.column-chart__chart');
     const columnProps = getColumnProps(data);
@@ -92,7 +92,7 @@ describe('oop-basic-intro-to-dom/column-chart', () => {
   it('should have ability to be updated by new "data" values (should re-render only body with charts columns)', () => {
     const data = [10];
 
-    columnChart = new ColumnChart({ data });
+    columnChart = new ColumnChart({data});
 
     const chart = columnChart.element.querySelector('.column-chart__chart');
 
