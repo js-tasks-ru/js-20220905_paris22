@@ -29,7 +29,7 @@ export default class SortableTable {
 
   async render() {
     const element = document.createElement('div');
-    element.innerHTML = this.template();
+    element.innerHTML = this.template;
     this.element = element.firstElementChild;
     this.table = this.element.firstElementChild;
     this.subElements = this.getSubElements();
