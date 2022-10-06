@@ -35,14 +35,14 @@ export default class SortableTable {
   }
 
   sort(field, direction = "asc") {
-    Array.from(
-      this.element.querySelectorAll(".sortable-table__cell[data-id]")
-    ).forEach((column) => {
-      column.removeAttribute("data-order");
-      if (column.dataset.id === field) {
-        column.dataset.order = direction;
+    const cells = this.element.querySelectorAll(".sortable-table__cell[data-id]");
+
+    for (const cell of cells) {
+      cell.removeAttribute("data-order");
+      if (cell.dataset.id === field) {
+        cell.dataset.order = direction;
       }
-    });
+    }
 
     const sortType = this.headerConfig.filter((header) => header.id == field)[0]
       .sortType;
@@ -67,7 +67,7 @@ export default class SortableTable {
 
   getHeaders() {
     return this.headerConfig
-      .map((column) => this.headerTemplate(column))
+      .map((cell) => this.headerTemplate(cell))
       .join("");
   }
 
@@ -87,10 +87,10 @@ export default class SortableTable {
       .join("");
   }
 
-  headerTemplate(column) {
+  headerTemplate(cell) {
     return `
-    <div class="sortable-table__cell" data-id="${column.id}" data-sortable="${column.sortable}">
-        <span>${column.title}</span>
+    <div class="sortable-table__cell" data-id="${cell.id}" data-sortable="${cell.sortable}">
+        <span>${cell.title}</span>
     </div>
     `;
   }

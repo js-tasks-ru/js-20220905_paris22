@@ -175,6 +175,7 @@ export default class SortableTable {
 
   destroy() {
     this.element.remove();
+    this.removeEventListeners()
     this.subElements = {};
   }
 }
