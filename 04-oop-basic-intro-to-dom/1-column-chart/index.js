@@ -3,12 +3,12 @@ export default class ColumnChart {
   chartHeight = 50;
 
   constructor({
-                data = [],
-                label = "",
-                link = "",
-                value = 0,
-                formatHeading = data => data,
-              } = {}) {
+     data = [],
+     label = "",
+     link = "",
+     value = 0,
+     formatHeading = data => data,
+   } = {}) {
     this.data = data;
     this.label = label;
     this.link = link;

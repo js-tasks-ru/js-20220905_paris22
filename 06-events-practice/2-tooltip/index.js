@@ -44,13 +44,14 @@ class Tooltip {
   }
 
   remove() {
-    document.body.removeEventListener('pointerover', this.showTooltip);
-    document.body.removeEventListener('pointerout', this.hideTooltip);
     this.hideTooltip();
   }
 
   destroy() {
     this.remove();
+    document.body.removeEventListener('pointerover', this.showTooltip);
+    document.body.removeEventListener('pointerout', this.hideTooltip);
+    document.body.removeEventListener('pointermove', this.tooltipPosition);
   }
 }
 
