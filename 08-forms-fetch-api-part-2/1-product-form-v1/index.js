@@ -35,7 +35,7 @@ export default class ProductForm {
 
       if (file) {
         const formData = new FormData();
-        const { uploadImage, imageListContainer } = this.subElements;
+        const {uploadImage, imageListContainer} = this.subElements;
 
         formData.append('image', file);
 
@@ -219,7 +219,7 @@ export default class ProductForm {
   }
 
   getFormData() {
-    const { productForm, imageListContainer } = this.subElements;
+    const {productForm, imageListContainer} = this.subElements;
     const excludedFields = ['images'];
     const formatToNumber = ['price', 'quantity', 'discount', 'status'];
     const fields = Object.keys(this.defaultData).filter(item => !excludedFields.includes(item));
@@ -251,14 +251,14 @@ export default class ProductForm {
 
   dispatchEvent(id) {
     const event = this.productId
-      ? new CustomEvent('product-updated', { detail: id })
+      ? new CustomEvent('product-updated', {detail: id})
       : new CustomEvent('product-saved');
 
     this.element.dispatchEvent(event);
   }
 
   setFormData() {
-    const { productForm } = this.subElements;
+    const {productForm} = this.subElements;
     const excludedFields = ['images'];
     const fields = Object.keys(this.defaultData).filter(item => !excludedFields.includes(item));
 
@@ -318,7 +318,7 @@ export default class ProductForm {
   }
 
   setEventListeners() {
-    const { productForm, uploadImage, imageListContainer } = this.subElements;
+    const {productForm, uploadImage, imageListContainer} = this.subElements;
 
     productForm.addEventListener('submit', this.submit);
     uploadImage.addEventListener('click', this.uploadImage);
